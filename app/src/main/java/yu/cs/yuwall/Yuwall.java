@@ -16,6 +16,7 @@ public class Yuwall extends Application {
     public void onCreate() {
     super.onCreate();
         Parse.initialize(this, "De8VXyenCy7VefysTTW8XccrxhNrxzg4tlW9ibmE", "puH5gzDQp2d3R80lsgXzsB0NScyjjrUMWRU734qi");
+        //super noob
     }
     public static void updateParseInstallation(ParseUser user) {
         ParseInstallation installation = ParseInstallation.getCurrentInstallation();
