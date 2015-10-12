@@ -4,5 +4,14 @@
     <string name="title_activity_signup">Signup</string>
     <string name="Password">Password</string>
     <string name="title_activity_news_feed">NewsFeedActivity</string>
+
+    <string name="navigation_item_1">Item 1</string>
+    <string name="navigation_item_2">Item 2</string>
+    <string name="navigation_item_3">Item 3</string>
+    <string name="navigation_item_4">Item 4</string>
+    <string name="navigation_item_5">Item 5</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="title_activity_fourth">Mr Four</string>
 </resources>
 
