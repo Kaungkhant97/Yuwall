@@ -9,5 +9,14 @@
         <color name="secondary_text">#727272</color>
         <color name="icons">#212121</color>
         <color name="divider">#B6B6B6</color>
+    <color name="white">#ffffff</color>
+    <color name="statusBarColor">#5be16b</color>
+    <color name="light_green">#7FFFAA</color>
+    <color name="red">#de3434</color>
+    <color name="green">#15e715</color>
+    <color name="blue">#d62d82fa</color>
+    <color name="orange">#e1a54a</color>
+    <color name="purple">#cec237f9</color>
+    <color name="yellow">#fde73a</color>
     </resources>
 

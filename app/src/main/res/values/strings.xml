@@ -1,17 +1,47 @@
 <resources>
-    <string name="app_name">Yuwall</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_signup">Signup</string>
-    <string name="Password">Password</string>
+    <string name="app_name">UY Portal</string>
+    <string name="username_lbl">Username</string>
+    <string name="pwd_lbl">Password</string>
+    <string name="confirm_pwd_lbl">Confirm Password</string>
+    <string name="fullname_lbl">Full Name</string>
+    <string name="login_lbl">log in</string>
+    <string name="major_lbl">Major</string>
+    <string name="login_link">Already member? Log in here</string>
+    <string name="signup_lbl">Sign up</string>
+    <string name="signup_link">Not create yet? Sign Up here</string>
+    <string name="register_lbl"><b>Register your account</b></string>
     <string name="title_activity_news_feed">NewsFeedActivity</string>
-
-    <string name="navigation_item_1">Item 1</string>
-    <string name="navigation_item_2">Item 2</string>
-    <string name="navigation_item_3">Item 3</string>
-    <string name="navigation_item_4">Item 4</string>
-    <string name="navigation_item_5">Item 5</string>
+    <string name="navigation_item_1">Home</string>
+    <string name="navigation_item_2">Public</string>
+    <string name="navigation_item_3">My major</string>
+    <string name="navigation_item_4">Map</string>
+    <string name="navigation_item_5">Logout</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
-    <string name="title_activity_fourth">Mr Four</string>
-</resources>
 
+    <string name="action_settings">setting</string>
+
+    <string-array name="major_list">
+<item>Anthropology</item>
+<item>Archaeology</item>
+<item>Botany</item>
+<item>Chemistry</item>
+<item>Computer Science</item>
+<item>English</item>
+<item>Geography</item>
+<item>Geology</item>
+<item>History</item>
+<item>Industrial Chemistry</item>
+<item>International Relations</item>
+<item>Law</item>
+<item>Library and Information Studies</item>
+<item>Mathematics</item>
+<item>Myanmar</item>
+<item>Oriental Studies</item>
+<item>Philosophy</item>
+<item>Physics</item>
+<item>Psychology</item>
+<item>Zoology</item>
+<item>Political Science</item>
+</string-array>
+</resources>
