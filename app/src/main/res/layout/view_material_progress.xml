@@ -9,8 +9,8 @@
     android:gravity="center"
     android:layout_gravity="center"
     android:orientation="vertical">
-
-    <com.uycs.uyportal.uyportal.util.MaterialProgressBar
+o
+    <yu.cs.yuwall.utils.MaterialProgressBar
         android:id="@+id/progress1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

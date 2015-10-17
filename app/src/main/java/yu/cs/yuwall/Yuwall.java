@@ -15,8 +15,8 @@ public class Yuwall extends Application {
 @Override
     public void onCreate() {
     super.onCreate();
-        Parse.initialize(this, "De8VXyenCy7VefysTTW8XccrxhNrxzg4tlW9ibmE", "puH5gzDQp2d3R80lsgXzsB0NScyjjrUMWRU734qi");
-        //super nsd
+        Parse.initialize(this, "I6b99wcqRWRvMidSF0qm6fBDfqxiq9dK8gR85Arg", "C9pDP6hgMUsmMca1DLodci6aXtxvwo3u8eZL0JTR");
+    //super nsd
         //another  is testing
 
     }

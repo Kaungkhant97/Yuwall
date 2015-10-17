@@ -23,6 +23,7 @@ public class tabfragment extends Fragment {
     public static final String TAG = tabfragment.class.getSimpleName();
     SectionsPagerAdapter pagerAdapter;
 
+
     public static tabfragment newInstance() {
         return new tabfragment();
     }

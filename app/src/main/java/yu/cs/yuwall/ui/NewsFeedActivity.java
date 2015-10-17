@@ -97,17 +97,30 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
 
     private void navigate(int mSelectedId) {
         switch(mSelectedId) {
+            case R.id.navigation_item_1:
+                /*getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_frame, tabfragment.newInstance(), tabfragment.TAG).commit();*/
+                Toast.makeText(NewsFeedActivity.this, "AT HOME", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.navigation_item_2:
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.content_frame, tabfragment.newInstance(), tabfragment.TAG).commit();
-                Toast.makeText(NewsFeedActivity.this, "selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NewsFeedActivity.this, "selectedPLACES", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.navigation_item_3:
+                //Have to use getFragmentManger() instead of getSupportFragmentManager()
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_frame, Events_Fragment.newInstance(), Events_Fragment.TAG).commit();
+                Toast.makeText(NewsFeedActivity.this, "selectedEVENTS", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.navigation_item_4:
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.content_frame, tabfragment.newInstance(), tabfragment.TAG).commit();
-                Toast.makeText(NewsFeedActivity.this, "selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NewsFeedActivity.this, "selectedMAP", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.navigation_item_5:
                  ParseUser.logOut();

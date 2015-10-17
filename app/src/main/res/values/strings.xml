@@ -12,8 +12,8 @@
     <string name="register_lbl"><b>Register your account</b></string>
     <string name="title_activity_news_feed">NewsFeedActivity</string>
     <string name="navigation_item_1">Home</string>
-    <string name="navigation_item_2">Public</string>
-    <string name="navigation_item_3">My major</string>
+    <string name="navigation_item_2">Places</string>
+    <string name="navigation_item_3">Events</string>
     <string name="navigation_item_4">Map</string>
     <string name="navigation_item_5">Logout</string>
     <string name="drawer_open">Open</string>
