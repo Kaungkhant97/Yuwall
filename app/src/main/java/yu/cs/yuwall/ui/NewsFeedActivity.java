@@ -1,5 +1,7 @@
 package yu.cs.yuwall.ui;
 
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -8,15 +10,17 @@ import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+
 import com.parse.ParseUser;
 
 
@@ -32,14 +36,14 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
     private ActionBarDrawerToggle mDrawerToggle;
     private int mSelectedId;
     private boolean mUserSawDrawer = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser == null) {
             navigateToLogin();
-        }
-        else {
+        } else {
             Log.i(TAG, currentUser.getUsername());
         }
         setContentView(R.layout.activity_news_feed);
@@ -96,40 +100,54 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
     }
 
     private void navigate(int mSelectedId) {
-        switch(mSelectedId) {
-            case R.id.navigation_item_1:
-                /*getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.content_frame, tabfragment.newInstance(), tabfragment.TAG).commit();*/
-                Toast.makeText(NewsFeedActivity.this, "AT HOME", Toast.LENGTH_SHORT).show();
-                break;
+
+        Fragment fragment = new tabfragment();
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+
+
+        switch (mSelectedId) {
             case R.id.navigation_item_2:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.content_frame, tabfragment.newInstance(), tabfragment.TAG).commit();
-                Toast.makeText(NewsFeedActivity.this, "selectedPLACES", Toast.LENGTH_SHORT).show();
+                fragment = new tabfragment();
                 break;
             case R.id.navigation_item_3:
-                //Have to use getFragmentManger() instead of getSupportFragmentManager()
-                getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.content_frame, Events_Fragment.newInstance(), Events_Fragment.TAG).commit();
-                Toast.makeText(NewsFeedActivity.this, "selectedEVENTS", Toast.LENGTH_SHORT).show();
+                fragment = new events_fragment();
                 break;
             case R.id.navigation_item_4:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.content_frame, tabfragment.newInstance(), tabfragment.TAG).commit();
-                Toast.makeText(NewsFeedActivity.this, "selectedMAP", Toast.LENGTH_SHORT).show();
+                fragment = new tabfragment();
                 break;
             case R.id.navigation_item_5:
-                 ParseUser.logOut();
-                 navigateToLogin();
-                 break;
+                    /*ParseUser.logOut();
+                    navigateToLogin();
+                    break;*/
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case DialogInterface.BUTTON_POSITIVE:
+                                //Clicked Yes
+                                ParseUser.logOut();
+                                navigateToLogin();
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                //CLicked No
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Are you sure you want to log out?").setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
+
+                break;
 
         }
-    }
 
+        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+
+    }
 
 
     @Override
@@ -162,8 +180,9 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
             super.onBackPressed();
         }
     }
+
     private void navigateToLogin() {
-        Intent intent = new Intent(this, SignupActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
@@ -171,6 +190,6 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
 
     }
 
-}
 
+}
 

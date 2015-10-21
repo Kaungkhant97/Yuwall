@@ -24,10 +24,14 @@ import yu.cs.yuwall.utils.ParseConstants;
 
 public class LoginActivity extends AppCompatActivity {
 
-    @Bind(R.id.input_username)    EditText _usernameText;
-    @Bind(R.id.input_password) EditText _passwordText;
-    @Bind(R.id.btn_login)    Button _loginButton;
-    @Bind(R.id.link_signup)  TextView _signupLink;
+    @Bind(R.id.input_username)
+    EditText _usernameText;
+    @Bind(R.id.input_password)
+    EditText _passwordText;
+    @Bind(R.id.btn_login)
+    Button _loginButton;
+    @Bind(R.id.link_signup)
+    TextView _signupLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +58,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private boolean netConnectionCheck(){
-        CheckConnection checkConnection=new CheckConnection(LoginActivity.this);
+    private boolean netConnectionCheck() {
+        CheckConnection checkConnection = new CheckConnection(LoginActivity.this);
         return checkConnection.isNetworkAvailable();
     }
 
@@ -64,12 +68,12 @@ public class LoginActivity extends AppCompatActivity {
         Log.d("Log in Activity running", "Login");
 
         if (!validate()) {
-           onLoginFailed();
+            onLoginFailed();
             return;
         }
 
-        if(!netConnectionCheck()){
-            Toast.makeText(getBaseContext(),"Network Error!",Toast.LENGTH_SHORT).show();
+        if (!netConnectionCheck()) {
+            Toast.makeText(getBaseContext(), "Network Error!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -101,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if (user != null) {
-                    Intent intent = new Intent(getApplicationContext(),NewsFeedActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), NewsFeedActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     ParseConstants.KEY_USER_LOGGED = true;
                     startActivity(intent);

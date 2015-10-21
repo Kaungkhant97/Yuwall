@@ -90,9 +90,10 @@ public class MaterialProgressBar extends ImageView {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
+
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         final TypedArray a = context.obtainStyledAttributes(
-                attrs, R.styleable.MaterialProgressBar, defStyleAttr,0);
+                attrs, R.styleable.MaterialProgressBar, defStyleAttr, 0);
 
 
         final float density = getContext().getResources().getDisplayMetrics().density;
@@ -107,26 +108,25 @@ public class MaterialProgressBar extends ImageView {
                 R.styleable.MaterialProgressBar_inner_radius, -1);
 
         mProgressStokeWidth = a.getDimensionPixelOffset(
-                R.styleable.MaterialProgressBar_progress_stoke_width, (int) (STROKE_WIDTH_LARGE*density));
+                R.styleable.MaterialProgressBar_progress_stoke_width, (int) (STROKE_WIDTH_LARGE * density));
         mArrowWidth = a.getDimensionPixelOffset(
-                R.styleable.MaterialProgressBar_arrow_width,  -1);
+                R.styleable.MaterialProgressBar_arrow_width, -1);
         mArrowHeight = a.getDimensionPixelOffset(
-                R.styleable.MaterialProgressBar_arrow_height,  -1);
+                R.styleable.MaterialProgressBar_arrow_height, -1);
         mTextSize = a.getDimensionPixelOffset(
-                R.styleable.MaterialProgressBar_progress_text_size,  (int)(DEFAULT_TEXT_SIZE *density));
+                R.styleable.MaterialProgressBar_progress_text_size, (int) (DEFAULT_TEXT_SIZE * density));
         mTextColor = a.getColor(
                 R.styleable.MaterialProgressBar_progress_text_color, Color.BLACK);
 
-        mShowArrow = a.getBoolean(R.styleable.MaterialProgressBar_show_arrow,false);
-        mCircleBackgroundEnabled = a.getBoolean(R.styleable.MaterialProgressBar_enable_circle_background,true);
-
+        mShowArrow = a.getBoolean(R.styleable.MaterialProgressBar_show_arrow, false);
+        mCircleBackgroundEnabled = a.getBoolean(R.styleable.MaterialProgressBar_enable_circle_background, true);
 
 
         mProgress = a.getInt(R.styleable.MaterialProgressBar_progress, 0);
         mMax = a.getInt(R.styleable.MaterialProgressBar_max, 100);
-        int textVisible = a.getInt(R.styleable.MaterialProgressBar_progress_text_visibility,1);
-        if(textVisible != 1){
-           mIfDrawText = true;
+        int textVisible = a.getInt(R.styleable.MaterialProgressBar_progress_text_visibility, 1);
+        if (textVisible != 1) {
+            mIfDrawText = true;
         }
 
         mTextPaint = new Paint();
@@ -138,7 +138,6 @@ public class MaterialProgressBar extends ImageView {
         mProgressDrawable = new MaterialProgressDrawable(getContext(), this);
         super.setImageDrawable(mProgressDrawable);
     }
-
 
 
     private boolean elevationSupported() {
@@ -158,11 +157,11 @@ public class MaterialProgressBar extends ImageView {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         final float density = getContext().getResources().getDisplayMetrics().density;
-        mDiameter = Math.min(getMeasuredWidth(),getMeasuredHeight());
-        if(mDiameter <=0){
-            mDiameter = (int)density*DEFAULT_CIRCLE_DIAMETER;
+        mDiameter = Math.min(getMeasuredWidth(), getMeasuredHeight());
+        if (mDiameter <= 0) {
+            mDiameter = (int) density * DEFAULT_CIRCLE_DIAMETER;
         }
-        if(getBackground()==null&& mCircleBackgroundEnabled){
+        if (getBackground() == null && mCircleBackgroundEnabled) {
             final int shadowYOffset = (int) (density * Y_OFFSET);
             final int shadowXOffset = (int) (density * X_OFFSET);
             mShadowRadius = (int) (density * SHADOW_RADIUS);
@@ -191,7 +190,7 @@ public class MaterialProgressBar extends ImageView {
                 mProgressStokeWidth,
                 mArrowWidth < 0 ? mProgressStokeWidth * 4 : mArrowWidth,
                 mArrowHeight < 0 ? mProgressStokeWidth * 2 : mArrowHeight);
-        if(isShowArrow()){
+        if (isShowArrow()) {
             mProgressDrawable.setArrowScale(1f);
             mProgressDrawable.showArrow(true);
         }
@@ -204,7 +203,7 @@ public class MaterialProgressBar extends ImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if(mIfDrawText) {
+        if (mIfDrawText) {
             String text = String.format("%s%%", mProgress);
             int x = getWidth() / 2 - text.length() * mTextSize / 4;
             int y = getHeight() / 2 + mTextSize / 4;
@@ -216,7 +215,6 @@ public class MaterialProgressBar extends ImageView {
     final public void setImageResource(int resId) {
 
     }
-
 
 
     public boolean isShowArrow() {
@@ -234,7 +232,7 @@ public class MaterialProgressBar extends ImageView {
     }
 
     @Override
-    final  public void setImageDrawable(Drawable drawable) {
+    final public void setImageDrawable(Drawable drawable) {
     }
 
     public void setAnimationListener(Animation.AnimationListener listener) {
@@ -267,14 +265,14 @@ public class MaterialProgressBar extends ImageView {
         setColorSchemeColors(colorRes);
     }
 
-    
+
     public void setColorSchemeColors(int... colors) {
         mColors = colors;
-        if(mProgressDrawable!=null) {
+        if (mProgressDrawable != null) {
             mProgressDrawable.setColorSchemeColors(colors);
         }
     }
-    
+
     public void setBackgroundColor(int colorRes) {
         if (getBackground() instanceof ShapeDrawable) {
             final Resources res = getResources();
@@ -327,7 +325,7 @@ public class MaterialProgressBar extends ImageView {
     public void setVisibility(int visibility) {
         super.setVisibility(visibility);
         if (mProgressDrawable != null) {
-            if(visibility!=VISIBLE) {
+            if (visibility != VISIBLE) {
                 mProgressDrawable.stop();
             }
             mProgressDrawable.setVisible(visibility == VISIBLE, false);
@@ -365,9 +363,9 @@ public class MaterialProgressBar extends ImageView {
             mShadowRadius = shadowRadius;
             mCircleDiameter = circleDiameter;
             mRadialGradient = new RadialGradient(mCircleDiameter / 2, mCircleDiameter / 2,
-                    mShadowRadius, new int[] {
-                            FILL_SHADOW_COLOR, Color.TRANSPARENT
-                    }, null, Shader.TileMode.CLAMP);
+                    mShadowRadius, new int[]{
+                    FILL_SHADOW_COLOR, Color.TRANSPARENT
+            }, null, Shader.TileMode.CLAMP);
             mShadowPaint.setShader(mRadialGradient);
         }
 

@@ -21,16 +21,22 @@
             android:background="@color/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
         <FrameLayout
+            android:id="@+id/content_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/content_frame">
-            <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
                 android:src="@android:drawable/ic_dialog_email" />
         </FrameLayout>
     </LinearLayout>
+
     <android.support.design.widget.NavigationView
         android:id="@+id/main_drawer"
         android:layout_width="wrap_content"

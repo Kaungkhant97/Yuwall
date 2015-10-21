@@ -22,26 +22,51 @@
     <string name="action_settings">setting</string>
 
     <string-array name="major_list">
-<item>Anthropology</item>
-<item>Archaeology</item>
-<item>Botany</item>
-<item>Chemistry</item>
-<item>Computer Science</item>
-<item>English</item>
-<item>Geography</item>
-<item>Geology</item>
-<item>History</item>
-<item>Industrial Chemistry</item>
-<item>International Relations</item>
-<item>Law</item>
-<item>Library and Information Studies</item>
-<item>Mathematics</item>
-<item>Myanmar</item>
-<item>Oriental Studies</item>
-<item>Philosophy</item>
-<item>Physics</item>
-<item>Psychology</item>
-<item>Zoology</item>
-<item>Political Science</item>
-</string-array>
+        <item>Anthropology</item>
+        <item>Archaeology</item>
+        <item>Botany</item>
+        <item>Chemistry</item>
+        <item>Computer Science</item>
+        <item>English</item>
+        <item>Geography</item>
+        <item>Geology</item>
+        <item>History</item>
+        <item>Industrial Chemistry</item>
+        <item>International Relations</item>
+        <item>Law</item>
+        <item>Library and Information Studies</item>
+        <item>Mathematics</item>
+        <item>Myanmar</item>
+        <item>Oriental Studies</item>
+        <item>Philosophy</item>
+        <item>Physics</item>
+        <item>Psychology</item>
+        <item>Zoology</item>
+        <item>Political Science</item>
+    </string-array>
+
+    <string-array name="department_list_event_dataentry">
+        <item>All(Public)</item>
+        <item>Anthropology</item>
+        <item>Archaeology</item>
+        <item>Botany</item>
+        <item>Chemistry</item>
+        <item>Computer Science</item>
+        <item>English</item>
+        <item>Geography</item>
+        <item>Geology</item>
+        <item>History</item>
+        <item>Industrial Chemistry</item>
+        <item>International Relations</item>
+        <item>Law</item>
+        <item>Library and Information Studies</item>
+        <item>Mathematics</item>
+        <item>Myanmar</item>
+        <item>Oriental Studies</item>
+        <item>Philosophy</item>
+        <item>Physics</item>
+        <item>Psychology</item>
+        <item>Zoology</item>
+        <item>Political Science</item>
+    </string-array>
 </resources>

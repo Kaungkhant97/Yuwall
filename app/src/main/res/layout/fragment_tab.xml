@@ -11,12 +11,12 @@
         app:tabMaxWidth="0dp"
         app:tabMode="scrollable"
         app:tabGravity="fill"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"/>
+        android:background="@android:color/white" />
 
 </android.support.design.widget.AppBarLayout>

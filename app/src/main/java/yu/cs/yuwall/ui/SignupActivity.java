@@ -34,13 +34,20 @@ import yu.cs.yuwall.utils.ParseConstants;
 
 public class SignupActivity extends AppCompatActivity {
 
-    @Bind(R.id.input_username_su)   EditText _username;
-    @Bind(R.id.input_fullname_su)   EditText _fullName;
-    @Bind(R.id.input_password_su)   EditText _password;
-    @Bind(R.id.input_confirm_password_su)   EditText _confirm_password;
-    @Bind(R.id.spinner_majorlist_su)   EditText _majorList;
-    @Bind(R.id.btn_signup)    Button _signupButton;
-    @Bind(R.id.link_login)    TextView _loginLink;
+    @Bind(R.id.input_username_su)
+    EditText _username;
+    @Bind(R.id.input_fullname_su)
+    EditText _fullName;
+    @Bind(R.id.input_password_su)
+    EditText _password;
+    @Bind(R.id.input_confirm_password_su)
+    EditText _confirm_password;
+    @Bind(R.id.spinner_majorlist_su)
+    EditText _majorList;
+    @Bind(R.id.btn_signup)
+    Button _signupButton;
+    @Bind(R.id.link_login)
+    TextView _loginLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,7 +58,7 @@ public class SignupActivity extends AppCompatActivity {
         final ListPopupWindow majorListPopup;
         final List<String> majorList = Arrays.asList(getResources().getStringArray(R.array.major_list));
         majorListPopup = new ListPopupWindow(this);
-        majorListPopup.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,majorList));
+        majorListPopup.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, majorList));
         majorListPopup.setAnchorView(_majorList);
         majorListPopup.setModal(true);
         majorListPopup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -98,7 +105,7 @@ public class SignupActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
     }
 
-    public void parseUserSignUp(final MaterialProgressDialog mpd){
+    public void parseUserSignUp(final MaterialProgressDialog mpd) {
         // Set up a new Parse user
         String username = _username.getText().toString().toLowerCase();
         String fullName = _fullName.getText().toString();
@@ -117,7 +124,7 @@ public class SignupActivity extends AppCompatActivity {
             public void done(com.parse.ParseException e) {
                 if (e == null) {
                     Toast.makeText(SignupActivity.this, "Sign Up Success!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(SignupActivity.this,NewsFeedActivity.class);
+                    Intent intent = new Intent(SignupActivity.this, NewsFeedActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     ParseConstants.KEY_USER_LOGGED = true;
                     startActivity(intent);
@@ -137,8 +144,8 @@ public class SignupActivity extends AppCompatActivity {
             return;
         }
 
-        if(!netConnectionCheck()){
-            Toast.makeText(getBaseContext(),"Network Error!",Toast.LENGTH_SHORT).show();
+        if (!netConnectionCheck()) {
+            Toast.makeText(getBaseContext(), "Network Error!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -157,8 +164,8 @@ public class SignupActivity extends AppCompatActivity {
     }
 
 
-    private boolean netConnectionCheck(){
-        CheckConnection checkConnection=new CheckConnection(SignupActivity.this);
+    private boolean netConnectionCheck() {
+        CheckConnection checkConnection = new CheckConnection(SignupActivity.this);
         return checkConnection.isNetworkAvailable();
     }
 
@@ -174,10 +181,10 @@ public class SignupActivity extends AppCompatActivity {
             _username.setError("at least 3 characters");
             valid = false;
 
-        }else if(containWhiteSpace(username)){
+        } else if (containWhiteSpace(username)) {
             _username.setError("cannot contain whitespace");
             valid = false;
-        }else {
+        } else {
             _username.setError(null);
         }
 
@@ -202,20 +209,20 @@ public class SignupActivity extends AppCompatActivity {
             _confirm_password.setError(null);
         }
 
-        if(_majorList.getText().toString().isEmpty()){
+        if (_majorList.getText().toString().isEmpty()) {
             _majorList.setError("Please Select one Major");
-            valid=false;
-        }else{
-           _majorList.setError(null);
+            valid = false;
+        } else {
+            _majorList.setError(null);
         }
 
         return valid;
     }
 
-    private boolean containWhiteSpace(final String string){
-        if(string != null){
-            for(int i=0; i<string.length(); i++){
-                if(Character.isWhitespace(string.charAt(i)))
+    private boolean containWhiteSpace(final String string) {
+        if (string != null) {
+            for (int i = 0; i < string.length(); i++) {
+                if (Character.isWhitespace(string.charAt(i)))
                     return true;
             }
         }

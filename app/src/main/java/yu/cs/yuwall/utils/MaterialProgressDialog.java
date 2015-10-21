@@ -12,7 +12,7 @@ public class MaterialProgressDialog extends Dialog {
     Context mContext;
     MaterialProgressDialog dialog;
 	public MaterialProgressDialog(Context context) {
-		super(context);
+        super(context);
         this.mContext=context;
 	}
 	public MaterialProgressDialog(Context context, int theme) {
